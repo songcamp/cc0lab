@@ -1,3 +1,5 @@
+import ConnectButton from '../components/ConnectButton';
+
 export default function Home() {
   return (
     <>
@@ -5,6 +7,7 @@ export default function Home() {
         CC0LAB
       </h1>
       <p className="font-body">Hello CC0LAB!</p>
+      <ConnectButton />
     </>
   )
 }
