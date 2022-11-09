@@ -13,12 +13,15 @@ import {
   WagmiConfig,
 } from 'wagmi';
 
+import { ankrPublicProvider } from '../lib/providers/ankr';
 import { publicProvider } from 'wagmi/providers/public';
+
 
 const { chains, provider } = configureChains(
   [chain.mainnet, chain.goerli],
   [
-    publicProvider() // TODO
+    ankrPublicProvider({ priority: 0 }),
+    publicProvider()
   ]
 );
 
