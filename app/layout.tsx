@@ -11,8 +11,6 @@ const fontFT88 = localFont({
   variable: '--font-ft88'
 })
 
-import Providers from './providers'
-
 export default function RootLayout({
   children,
 }: {
@@ -26,9 +24,7 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <Providers>
-          {children}
-        </Providers>
+        {children}
       </body>
     </html>
   )
