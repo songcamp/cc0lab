@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@next/font': ^13.0.3
+  '@next/font': 13.0.2
   '@rainbow-me/rainbowkit': ^0.7.4
   '@types/node': 18.11.9
   '@types/react': 18.0.25
@@ -20,7 +20,7 @@ specifiers:
   wagmi: ^0.7.15
 
 dependencies:
-  '@next/font': 13.0.3
+  '@next/font': 13.0.2
   '@rainbow-me/rainbowkit': 0.7.4_hytdcyh7zhhpsa2uczvzepcvdq
   '@types/node': 18.11.9
   '@types/react': 18.0.25
@@ -567,8 +567,8 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/font/13.0.3:
-    resolution: {integrity: sha512-J3bZooNyhzhRshEJZlc4Kagfx6f8LQkPdCsP0nZm63dAUaoeMaQRidFFhbL68WZ3S5XleVfpGYypZuBSyJqYtw==}
+  /@next/font/13.0.2:
+    resolution: {integrity: sha512-tLbyZCA1uF8HjbUEN5c4zB453yEzt5aT9VDhXPw1/eJhX4U0Q4lD3s3Bs+gpCjuLrEgILd56jQuzxgrMnWHH8A==}
     dev: false
 
   /@next/swc-android-arm-eabi/13.0.2:
