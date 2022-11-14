@@ -3,14 +3,17 @@ lockfileVersion: 5.4
 specifiers:
   '@next/font': 13.0.2
   '@rainbow-me/rainbowkit': ^0.7.4
+  '@types/iframe-resizer': ^3.5.9
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.8
   '@wagmi/core': ^0.7.1
   autoprefixer: ^10.4.13
+  clsx: ^1.2.1
   eslint: 8.27.0
   eslint-config-next: 13.0.2
   ethers: ^5.7.2
+  iframe-resizer: ^4.3.2
   next: 13.0.2
   postcss: ^8.4.19
   react: 18.2.0
@@ -26,9 +29,11 @@ dependencies:
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.8
   '@wagmi/core': 0.7.1_esfrnyltbjxixfno7savouzsvi
+  clsx: 1.2.1
   eslint: 8.27.0
   eslint-config-next: 13.0.2_rmayb2veg2btbq6mbmnyivgasy
   ethers: 5.7.2
+  iframe-resizer: 4.3.2
   next: 13.0.2_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -36,6 +41,7 @@ dependencies:
   wagmi: 0.7.15_ir5rj4sfbt34e63yhlgyn6mx7a
 
 devDependencies:
+  '@types/iframe-resizer': 3.5.9
   autoprefixer: 10.4.13_postcss@8.4.19
   postcss: 8.4.19
   tailwindcss: 3.2.4_postcss@8.4.19
@@ -836,6 +842,10 @@ packages:
     dependencies:
       '@types/node': 18.11.9
     dev: false
+
+  /@types/iframe-resizer/3.5.9:
+    resolution: {integrity: sha512-RQUBI75F+uXruB95BFpC/8V8lPgJg4MQ6HxOCtAZYBB/h0FNCfrFfb4I+u2pZJIV7sKeszZbFqy1UnGeBMrvsA==}
+    dev: true
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -2795,6 +2805,11 @@ packages:
 
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
+    dev: false
+
+  /iframe-resizer/4.3.2:
+    resolution: {integrity: sha512-gOWo2hmdPjMQsQ+zTKbses08mDfDEMh4NneGQNP4qwePYujY1lguqP6gnbeJkf154gojWlBhIltlgnMfYjGHWA==}
+    engines: {node: '>=0.8.0'}
     dev: false
 
   /ignore/5.2.0:

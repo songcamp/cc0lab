@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    cursor: inherit;
+  }
+  html {
+    cursor: url(/cursor/arrow-black.png), auto;
+  }
+  a {
+    cursor: url(/cursor/arrow-white.png), auto;
+  }
+}
+
+@layer utilities {
+  .braces::before {
+    content: '{'
+  }
+  .braces::after {
+    content: '}'
+  }
+  .pixelated {
+    image-rendering: pixelated;
+  }
+}
+
+/* See https://github.com/vercel/next.js/discussions/41745 */
+[data-nextjs-scroll-focus-boundary] {
+  display: contents;
+}
