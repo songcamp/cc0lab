@@ -1,5 +1,6 @@
 import type React from 'react'
 import type { ContractTransaction } from 'ethers'
+import type { BigNumber } from 'ethers'
 
 export type Networks = '1' | '5'
 
@@ -9,7 +10,7 @@ export interface DropsContractProps {
    * @default: undefined
    * Currently supports Zora's ERC721 Drops contracts both Editions & Drops style metadata
    */
-  collectionAddress?: string
+  collectionAddress: string
   /**
    * @default: '1'
    * Goerli and Mainnet Ethereum networks supported
@@ -54,10 +55,7 @@ export interface AllowListEntry {
 
 export interface DropsContractReturnTypes {
   purchase: () => Promise<ContractTransaction | undefined>
-  purchasePresale: (
-    quantity: number,
-    allowlistEntry?: AllowListEntry
-  ) => Promise<ContractTransaction | undefined>
+  purchasePresale: () => Promise<ContractTransaction | undefined>
   onMintCallback: () => void
   setMintQuantity?: React.ChangeEventHandler<HTMLInputElement>
   collectionData?: any
@@ -71,10 +69,10 @@ export interface DropsContractReturnTypes {
     txHash?: string
   }
   totalPrice?: {
-    raw: string | number
-    pretty: string | number
+    raw: BigNumber
+    pretty: string
   }
-  mintQuantity?: {
+  mintQuantity: {
     name: string
     queryValue: number
   }

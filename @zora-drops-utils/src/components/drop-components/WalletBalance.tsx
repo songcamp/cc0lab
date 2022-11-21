@@ -9,7 +9,7 @@ export function WalletBalance() {
       <span className="drops-ui__sales-info--title">You Own:&nbsp;</span>
       <span className="drops-ui__sales-info--copy">
         {balance?.walletBalance}&nbsp;NFT
-        {`${balance?.walletBalance > 1 || balance?.walletBalance === 0 ? 's' : ''}`}
+        {`${(balance?.walletBalance ?? 0) > 1 || balance?.walletBalance === 0 ? 's' : ''}`}
       </span>
     </p>
   )

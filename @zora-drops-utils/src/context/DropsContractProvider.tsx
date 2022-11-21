@@ -56,32 +56,42 @@ export function DropsContractProvider({
 
   const handleUpdateMintQuantity = React.useCallback(
     (event: any) => {
+      const name = event?.target?.value || DEFAULT_MINT_QUANTITY.name
+      const queryValue = parseInt(name, 10)
       setMintQuantity({
-        name: event?.target?.value,
-        queryValue: parseInt(event?.target?.value),
+        name,
+        queryValue
       })
     },
     [mintQuantity, setMintQuantity]
   )
 
+  const rawSalePrice = React.useMemo(() => {
+    if (isPresaleMint) {
+      return allowlistEntry?.price
+    }
+    if (collectionData?.salesConfig?.publicSalePrice) {
+      return collectionData?.salesConfig?.publicSalePrice
+    }
+  }, [isPresaleMint, allowlistEntry?.price, collectionData?.salesConfig?.publicSalePrice])
+
+
   const totalPurchasePrice = React.useMemo(() => {
     try {
-      const publicSalePriceNumber = Number(collectionData?.salesConfig?.publicSalePrice)
-      const total = String(mintQuantity.queryValue * publicSalePriceNumber)
-      return total
+      return BigNumber.from(mintQuantity.queryValue).mul(rawSalePrice)
     } catch (err) {
-      console.error(err)
+      // console.error(err)
     }
-  }, [collectionData, collectionData?.salesConfig?.publicSalePrice, mintQuantity])
+  }, [mintQuantity, rawSalePrice])
 
   const { data: balanceOf } = useContractRead({
-    addressOrName: collectionAddress,
-    contractInterface: zoraDropsABI.abi,
+    address: collectionAddress,
+    abi: [...zoraDropsABI.abi],
     functionName: 'balanceOf',
     args: [address],
-    watch: false,
-    cacheOnBlock: true,
-    enabled: false,
+    // watch: false,
+    // cacheOnBlock: true,
+    // enabled: false,
   })
 
   /* initialize contract */
@@ -122,21 +132,21 @@ export function DropsContractProvider({
     } catch (err) {
       setError(err)
     }
-  }, [drop, collectionData?.salesConfig, mintQuantity?.queryValue])
+  }, [drop, collectionData?.salesConfig, mintQuantity?.queryValue, totalPurchasePrice])
 
   /* PreSale Purchase */
   const purchasePresale = React.useCallback(
-    async (quantity: number, allowlistEntry?: AllowListEntry) => {
+    async () => {
       if (!drop || !allowlistEntry) return
       await checkHasContract(drop.address)
       try {
         const tx = await drop.purchasePresale(
-          quantity,
+          mintQuantity.queryValue,
           allowlistEntry.maxCanMint,
           BigNumber.from(allowlistEntry.price),
           allowlistEntry.proof.map((e: any) => `0x${e}`),
           {
-            value: BigNumber.from(allowlistEntry.price).mul(BigNumber.from(quantity)),
+            value: totalPurchasePrice
           }
         )
         setPurchaseLoading(true)
@@ -152,7 +162,7 @@ export function DropsContractProvider({
         setError(err)
       }
     },
-    [drop]
+    [drop, allowlistEntry?.price, mintQuantity?.queryValue, totalPurchasePrice]
   )
 
   /* Checks */
@@ -199,7 +209,7 @@ export function DropsContractProvider({
   const balance = React.useMemo(() => {
     try {
       return {
-        walletLimit: balanceOf >= maxPerAddress,
+        walletLimit: Number(balanceOf) >= maxPerAddress,
         walletBalance: Number(balanceOf),
       }
     } catch (err) {
@@ -258,12 +268,13 @@ export function DropsContractProvider({
   ])
 
   React.useEffect(() => {
-    setIsPresaleMint(
+    const safeBalance = balance?.walletBalance || 0
+    const canPresaleMint =
       allowlistEntry &&
-        accessAllowed &&
-        saleStatus?.presaleIsActive &&
-        balance?.walletBalance < allowlistEntry?.maxCanMint
-    )
+      accessAllowed &&
+      saleStatus?.presaleIsActive &&
+      safeBalance < allowlistEntry?.maxCanMint
+    setIsPresaleMint(canPresaleMint)
   }, [
     allowlistEntry,
     accessAllowed,
@@ -293,12 +304,12 @@ export function DropsContractProvider({
         mintQuantity,
         setMintQuantity: handleUpdateMintQuantity,
         totalPrice: {
-          raw: totalPurchasePrice,
-          pretty: prettyPurchasePrice,
+          raw: totalPurchasePrice || BigNumber.from(0),
+          pretty: prettyPurchasePrice || '',
         },
         errors: {
-          insufficientFunds: insufficientFunds,
-          unpredictableGasLimit: unpredictableGasLimit,
+          insufficientFunds: !!insufficientFunds,
+          unpredictableGasLimit: !!unpredictableGasLimit,
         },
         purchaseLimit,
         inventory,

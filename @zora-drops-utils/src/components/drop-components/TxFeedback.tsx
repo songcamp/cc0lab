@@ -17,7 +17,7 @@ export function TxFeedback({
   if (!transaction?.txHash) return null
 
   return (
-    <div className="mt-[15px]" {...props}>
+    <div {...props}>
       {transaction?.txHash && transaction?.purchaseLoading ? (
         <div>
           You're transaction is processing,{' '}

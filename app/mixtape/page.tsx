@@ -1,15 +1,21 @@
 import P9Window from '../../components/P9Window'
-import Link from 'next/link'
+import Providers from './providers'
+import DropsMinter from '../../components/DropsMinter'
+import DropsDescription from '../../components/DropsDescription'
 
-export default function About() {
+export default function Page() {
   return (
-  <P9Window className="row-start-2 justify-self-center self-center max-h-full z-10">
-    <div className="font-display text-[28px] p-[40px]">
-      <p>CC0lab Mixtape Vol.1</p>
-      <p>11/28/2022</p>
-      <br />
-      {'{'}<Link href="https://create.zora.co/collections/0x72529ca1ca1be6657cfc9f9f12c614e2fbd8d761">Mint on Zora</Link>{'}'}
+    <div className="grid gap-[10px] md:gap-[20px] auto-cols-[minmax(0,auto)] auto-rows-[minmax(0,auto)] row-start-2 justify-self-center justify-items-center items-center h-full z-10 pointer-events-none">
+      <Providers>
+        <P9Window className="w-[480px] max-w-full max-h-full pointer-events-auto">
+            <DropsMinter />            
+          </P9Window>
+          
+          <P9Window className="w-full md:w-auto md:col-start-2 max-h-full pointer-events-auto">
+            <DropsDescription />
+          </P9Window>
+  
+      </Providers>
     </div>
-  </P9Window>
   )
 }

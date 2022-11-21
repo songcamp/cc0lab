@@ -1,6 +1,6 @@
 import { addIPFSGateway } from './addIPFSGateway'
 
-export async function decodeContractUri(contractURI?: string, ipfsGateway?: string) {
+export async function decodeContractUri(contractURI: string, ipfsGateway?: string) {
   const url = !contractURI.startsWith('data:application')
     ? addIPFSGateway(contractURI, ipfsGateway)
     : undefined

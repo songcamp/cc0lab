@@ -9,8 +9,20 @@
   html {
     cursor: url(/cursor/arrow-black.png), auto;
   }
-  a {
+  a, button {
     cursor: url(/cursor/arrow-white.png), auto;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply block font-body leading-none text-black border border-black px-[10px] py-[20px] bg-green hover:active:bg-checkered hover:active:pixelated active:contrast-200;
+  }
+  .btn-wrapper {
+    @apply contents;
+  }
+  .btn-wrapper > button {
+    @apply btn w-auto m-0;
   }
 }
 
@@ -27,6 +39,6 @@
 }
 
 /* See https://github.com/vercel/next.js/discussions/41745 */
-[data-nextjs-scroll-focus-boundary] {
+[data-nextjs-scroll-focus-boundary], [data-rk] {
   display: contents;
 }

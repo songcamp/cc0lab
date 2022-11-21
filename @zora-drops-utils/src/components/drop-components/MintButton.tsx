@@ -1,7 +1,5 @@
 import React from 'react'
-import { useAllowlistEntry } from '../../hooks/useAllowlistEntry'
 import { useDropsContractProvider } from './../../context'
-import { useAccount } from 'wagmi'
 
 interface MintButtonProps extends React.HTMLAttributes<HTMLElement> {
   className?: string
@@ -34,7 +32,6 @@ export function MintButton({
   mintButtonCallback = () => {},
   ...props
 }: MintButtonProps) {
-  const { address } = useAccount()
 
   const {
     mintQuantity,
@@ -54,14 +51,9 @@ export function MintButton({
     [errors, balance, errors?.insufficientFunds, balance?.walletLimit]
   )
 
-  const { accessAllowed, allowlistEntry } = useAllowlistEntry({
-    merkleRoot: saleStatus?.presaleMerkleRoot,
-    address: address,
-  })
-
-  const quantity = React.useMemo(
-    () => `${tokenDescriptor}${mintQuantity?.queryValue > 1 ? 's' : ''}`,
-    [mintQuantity?.queryValue, balance?.walletBalance]
+  const quantity = React.useMemo(() => {
+    return `${tokenDescriptor}${mintQuantity?.queryValue > 1 ? 's' : ''}`
+    }, [mintQuantity?.queryValue, balance?.walletBalance]
   )
 
   const mintCtaCopy = React.useMemo(
@@ -74,14 +66,6 @@ export function MintButton({
     [mintQuantity, mintQuantity?.name, quantity]
   )
 
-  const presaleCannotMintCtaCopy = React.useMemo(
-    () =>
-      !presaleCannotMintCta
-        ? `Public sale starts: ${saleStatus?.startDateFull?.pretty}`
-        : presaleCannotMintCta,
-    [saleStatus, saleStatus?.startDateFull?.pretty]
-  )
-
   const handleMintCall = React.useCallback(() => {
     purchase()
     onMintCallback()
@@ -89,10 +73,10 @@ export function MintButton({
   }, [purchase, onMintCallback, mintButtonCallback])
 
   const handlePresaleMintCall = React.useCallback(() => {
-    purchasePresale(mintQuantity?.queryValue, allowlistEntry)
+    purchasePresale()
     onMintCallback()
     mintButtonCallback()
-  }, [purchasePresale, mintQuantity?.queryValue, allowlistEntry])
+  }, [purchasePresale, onMintCallback, mintButtonCallback])
 
   const SecondaryMarket = () => (
     <p className="drops-ui__mint-button--sale-over grid">
