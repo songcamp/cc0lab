@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "tsc"
   },
   "dependencies": {
     "@ethersproject/abi": "^5.7.0",

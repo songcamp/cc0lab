@@ -6,13 +6,8 @@
 // and related and neighboring rights to this software to the public domain
 // worldwide. This software is distributed without any warranty.
 
-export default function Head() {
-  return (
-    <>
-      <title>CC0lab</title>
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="" />
-      <link rel="icon" href="/favicon.png" />
-    </>
-  )
+import Head from '../components/Head'
+
+export default function H() {
+  return <Head />
 }
