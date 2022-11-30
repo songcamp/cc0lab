@@ -20,7 +20,7 @@ export default function MintQuantity({ ...props }) {
       console.error(err)
       return minValue
     }
-  }, [purchaseLimit, purchaseLimit?.maxAmount, balance, balance?.walletBalance])
+  }, [purchaseLimit?.maxAmount, balance?.walletLimit, balance?.walletBalance])
 
   const updateMintQuantity = (value: number) => {
     const input = inputRef?.current
@@ -37,8 +37,6 @@ export default function MintQuantity({ ...props }) {
     updateMintQuantity(newVal)
   }, [
     maxValue,
-    inputRef,
-    mintQuantity,
     mintQuantity?.queryValue,
   ])
 
@@ -51,8 +49,6 @@ export default function MintQuantity({ ...props }) {
     )
   }, [
     minValue,
-    inputRef,
-    mintQuantity,
     mintQuantity?.queryValue,
   ])
 

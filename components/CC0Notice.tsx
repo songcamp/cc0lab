@@ -8,6 +8,7 @@ export default function CC0Notice() {
     <div className="inline-flex p-2 font-body text-[10px] leading-none">
       <p {...namespaces}>
         <a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/CC0Button.svg" alt="CC0" className="pb-2" />
         </a>
         To the extent possible under law,{' '}
