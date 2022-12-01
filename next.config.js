@@ -3,6 +3,14 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  eslint: {
+    dirs: [
+      "@zora-drops-utils",
+      "app",
+      "components",
+      "lib"
+    ]
+  },
   async redirects() {
     return [
       {
