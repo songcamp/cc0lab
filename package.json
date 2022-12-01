@@ -24,6 +24,7 @@
     "clsx": "^1.2.1",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
+    "eslint-plugin-header": "^3.1.1",
     "ethers": "^5.7.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
