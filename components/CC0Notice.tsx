@@ -5,17 +5,29 @@ const namespaces = {
 
 export default function CC0Notice() {
   return (
-    <div className="inline-flex p-2 font-body text-[10px] leading-none">
+    <div className="inline-flex p-2 font-body text-[10px] leading-[12px]">
       <p {...namespaces}>
-        <a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <a 
+          className="float-left pr-[10px] pb-[5px]"
+          rel="license noreferrer noopener"
+          href="http://creativecommons.org/publicdomain/zero/1.0/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/CC0Button.svg" alt="CC0" className="pb-2" />
+          <img src="/CC0Button.svg" alt="CC0" />
         </a>
         To the extent possible under law,{' '}
-        <a rel="dct:publisher" href="https://cc0lab.songcamp.band" className="braces">
+        <a
+          rel="dct:publisher noreferrer noopener"
+          href="https://cc0lab.songcamp.band"
+          className="braces">
           <span property="dct:title">CC0lab</span>
         </a>{' '}
-        has waived all copyright and related or neighboring rights to <span property="dct:title">the CC0lab website</span>.
+        has waived all copyright and related or neighboring rights to{' '}
+        <a
+          rel="dct:source noreferrer noopener"
+          href="https://github.com/songcamp/cc0lab"
+          className="braces">
+          <span property="dct:title">the CC0lab website</span>
+        </a>.
         This work is published from:{' '}
         <span
           property="vcard:Country"
