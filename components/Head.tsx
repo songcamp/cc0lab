@@ -50,7 +50,6 @@ export type OpenGraphProps = SocialProps & {
 }
 
 export type HeadProps = SocialProps & {
-  baseUrl?: string,
   url?: string,
   og?: OpenGraphProps,
   twitter?: TwitterProps,
@@ -58,7 +57,6 @@ export type HeadProps = SocialProps & {
 }
 
 export default function Head({
-  baseUrl = _baseUrl,
   url = _url,
   title = _title,
   description = _description,
