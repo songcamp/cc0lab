@@ -23,4 +23,12 @@ module.exports = {
       2
     ]
   },
+  overrides: [
+    {
+      files: ['@zora-drops-utils/**'],
+      rules: {
+        'header/header': 'off',
+      }
+    }
+  ]
 }
