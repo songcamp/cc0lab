@@ -21,7 +21,7 @@ export default function DropsDescription() {
 <br/>
 2- One More Season - anatu, greydient, dilip (3:35)
 <br/>
-3- Keep Me Quiet - Rawra, L.Ariel (4:53)
+3- Keep Me Quiet - RAWRA, L.Ariel (4:53)
 <br/>
 4- Fall Over You - Pozibelle, Dontmesswithjuan, L.Ariel (7:17)
 <br/>
@@ -49,11 +49,14 @@ export default function DropsDescription() {
 <br/>
 16- Echoes of a Future - Conor Dalton, Dontmesswithjuan (34:07)</p>
       <br/>
-<p>Mixtape made with love by Oceantied
-Original artwork made with magic by Private Woman</p>
+<p>Original artwork made with magic by Private Woman.<br/>
+Song mastering made with precise care by Conor Dalton.<br/>
+Mixtape made with love by Oceantied.</p>
       <br/>
-<p>All these tracks are CC0, meaning you are free to download them and use them as you wish. If you want to know more about CC0, here are some official infos.
-https://creativecommons.org/share-your-work/public-domain/cc0/</p>
+<p>You can find our work/connect with artists here: https://cc0lab.songcamp.band</p>
+      <br/>
+<p>Copyright and related rights waived via CC0.<br/>
+https://creativecommons.org/publicdomain/zero/1.0/</p>
     </div>
   )
 }
