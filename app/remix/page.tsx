@@ -19,9 +19,9 @@ export default function Page() {
       <h4 className="font-display text-[20px]">How to COOP:</h4>
       <ol className="list-inside list-decimal">
       <li><span className="font-displayUnderscored">Get the stems</span> <a className="braces" rel="noreferrer noopener" href="https://arweave.net/noOR4bqVTVEkgfG_7Fy8stCvuTbrJkKnSYpgKQqmLA0">HERE</a> or remix <ArpeggiLink className="braces" slug="0x8815C5Cf745a8fCdFE134dA299cBF6f3012E2674/sounds">CC0lab</ArpeggiLink> on Apreggi.</li>
-      <li><span className="font-displayUnderscored">Submit your remixes</span> <a className="braces" rel="noreferrer noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSe6LDfIBcU2eoREhQ5MR-10CbeXkV6YHteNxtHeLsZLaiEB1g/viewform">HERE</a> by April 1st.</li>
+      <li><span className="font-displayUnderscored">Submit your remixes</span> <a className="braces" rel="noreferrer noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSe6LDfIBcU2eoREhQ5MR-10CbeXkV6YHteNxtHeLsZLaiEB1g/viewform">HERE</a>.</li>
       </ol>
-      <p>The CC0 crew will mint selected remixes and publish them on <PresentMaterialLink className="braces">Present Material</PresentMaterialLink> with a 70/30 split between you and the CC0lab artists.</p>
+      <p>The CC0 crew will mint selected remixes and publish them on <PresentMaterialLink className="braces">Present Material</PresentMaterialLink> with a 90/10 split between you and the CC0lab artists.</p>
       </div>
     </P9Window>
   )
