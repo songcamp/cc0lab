@@ -6,43 +6,27 @@
 // and related and neighboring rights to this software to the public domain
 // worldwide. This software is distributed without any warranty.
 
-import {
-  chain,
-  Chain,
-} from 'wagmi';
+// import type { Chain } from 'wagmi';
+import { mainnet, sepolia } from 'wagmi/chains'
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
-import type { JsonRpcProviderConfig } from '@wagmi/core/providers/jsonRpc';
-import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
-
-const ankrPublicRpcEndpoint = (rpcChain: Chain): string | null => {
-  switch (rpcChain.id) {
-    case chain.mainnet.id:
-      return 'https://rpc.ankr.com/eth';
-    case chain.goerli.id:
-      return 'https://rpc.ankr.com/eth_goerli';
-    default:
-      return null;
-  }
-}
-
-export function ankrPublicRpc(rpcChain: Chain) {
-  const endpoint = ankrPublicRpcEndpoint(rpcChain);
-  if (endpoint) {
-    return { http: endpoint };
-  } else {
-    console.log(`Unsupported RPC Chain.id: ${rpcChain.id}`);
-    return null;
-  }
-};
-
-// remove "rpc" field from base type
-export type AnkrPublicProviderConfig = {
-  [Property in keyof JsonRpcProviderConfig as Exclude<Property, "rpc">]: JsonRpcProviderConfig[Property]
-};
-
-export function ankrPublicProvider(config: AnkrPublicProviderConfig){
+export function ankrPublicProvider(config: any) {
   return jsonRpcProvider({
     ...config,
-    rpc: ankrPublicRpc
-  });
+    rpc: (chain) => {
+      let endpoint: string | null;
+      switch (chain.id) {
+        case mainnet.id:
+          endpoint = 'https://rpc.ankr.com/eth'
+          break
+        case sepolia.id:
+          endpoint = 'https://rpc.ankr.com/eth_sepolia'
+          break
+        default:
+          console.log(`Unsupported RPC Chain.id: ${chain.id}`)
+          endpoint = null
+      }
+      return endpoint ? { http: endpoint } : null
+    }
+  })
 }

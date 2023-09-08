@@ -10,7 +10,7 @@ export interface DropsContractProps {
    * @default: undefined
    * Currently supports Zora's ERC721 Drops contracts both Editions & Drops style metadata
    */
-  collectionAddress: string
+  collectionAddress: `0x${string}`
   /**
    * @default: '1'
    * Goerli and Mainnet Ethereum networks supported

@@ -16,13 +16,14 @@ import {
 } from '@rainbow-me/rainbowkit';
 
 import {
-  chain,
   configureChains,
   createClient,
   WagmiConfig,
 } from 'wagmi';
 
-import { ankrPublicProvider } from '../../lib/providers/ankr';
+import { mainnet } from 'wagmi/chains'
+
+// import { ankrPublicProvider } from '../../lib/providers/ankr';
 import { publicProvider } from 'wagmi/providers/public';
 
 import { SWRConfig } from 'swr'
@@ -31,16 +32,16 @@ import { DropsContractProvider } from '@zora-drops-utils'
 // import { ZDKFetchStrategy } from '@zoralabs/nft-hooks/dist/strategies'
 
 const { chains, provider } = configureChains(
-  [chain.mainnet],
-  // [chain.goerli],
+  [mainnet],
   [
-    ankrPublicProvider({ priority: 0 }),
+    // ankrPublicProvider({ priority: 0 }),
     publicProvider()
   ]
 );
 
 const { connectors } = getDefaultWallets({
   appName: 'CC0LAB',
+  projectId: 'f5ade014dfc2ffe87c4cc047598d4c5a',
   chains
 });
 

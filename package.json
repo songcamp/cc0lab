@@ -15,15 +15,14 @@
     "@ethersproject/constants": "^5.7.0",
     "@ethersproject/providers": "^5.7.0",
     "@next/font": "13.0.2",
-    "@rainbow-me/rainbowkit": "^0.7.4",
+    "@rainbow-me/rainbowkit": "^0.12.18",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
-    "@wagmi/core": "^0.7.1",
     "@zoralabs/nft-drop-contracts": "^1.0.1",
     "@zoralabs/nft-hooks": "^1.1.10",
     "clsx": "^1.2.1",
-    "eslint": "8.27.0",
+    "eslint": "8.48.0",
     "eslint-config-next": "13.0.2",
     "eslint-plugin-header": "^3.1.1",
     "ethers": "^5.7.2",
@@ -33,8 +32,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "^1.3.0",
-    "typescript": "4.8.4",
-    "wagmi": "^0.7.15"
+    "typescript": "4.9.5",
+    "wagmi": "^0.12.19"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
