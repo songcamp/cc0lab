@@ -1,16 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  async redirects() {
-    return [
+  images: {
+    remotePatterns: [
       {
-        source: '/',
-        destination: '/mixtape',
-        permanent: false,
+        protocol: 'https',
+        hostname: 'img.reservoir.tools',
       },
-    ]
+      {
+        protocol: 'https',
+        hostname: 'i.seadn.io',
+      },
+    ],
   },
 }
 
