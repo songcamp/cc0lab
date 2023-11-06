@@ -1,13 +1,13 @@
-const plugin = require('tailwindcss/plugin');
-const colors = require('tailwindcss/colors')
-const defaultTheme = require('tailwindcss/defaultTheme');
+import plugin from 'tailwindcss/plugin'
+import colors from 'tailwindcss/colors'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './@zora-drops-utils/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     colors: {
@@ -45,11 +45,12 @@ module.exports = {
   },
   plugins: [
     // TODO handle custom screens
-    plugin(({addVariant}) => {
-      const {screens} = defaultTheme
+    plugin(({addVariant, theme}) => {
+      const screens = theme('screens') as Record<string, string>;
       for (const k in screens) {
         addVariant(`v-${k}`, `@media (min-height: ${screens[k]})`)
       }
     })
   ],
 }
+export default config
