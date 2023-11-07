@@ -9,12 +9,16 @@
 import './globals.css'
 import clsx from 'clsx'
 
-import Navbar from '../components/Navbar'
-// import Footer from '../components/Footer'
-import P9Window from '../components/P9Window'
-import CC0Notice from '../components/CC0Notice'
+import Navbar from '@/components/Navbar'
+// import Footer from '@/components/Footer'
+import P9Window from '@/components/P9Window'
+import CC0Notice from '@/components/CC0Notice'
 
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
+import { P9Frame } from '@/components/P9Frame'
+import Link from 'next/link'
+
+export { metadata } from './metadata'
 
 const fontBPtypewrite = localFont({
   src: './fonts/BPtypewrite/BPtypewrite.woff',
@@ -43,16 +47,20 @@ export default function RootLayout({
       fontBPtypewrite.variable,
       fontFT88.variable
     )}>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body className="grid gap-y-[10px] grid-rows-[minmax(0,auto)_minmax(0,1fr)_minmax(0,auto)] md:grid-rows-[10px_minmax(0,1fr)_10px] grid-cols-1 p-[10px] md:p-[20px] min-h-full md:h-full overflow-hidden">
+      <body className={clsx(
+        'p-[10px] h-full overflow-hidden',
+        'grid gap-y-[10px] grid-rows-[10px_minmax(0,1fr)_10px] grid-cols-1',
+        'md:p-[20px]'
+      )}>
         <header className="col-span-full max-w-full z-0 hover:z-20">
-          <P9Window>
-            <Navbar />
-          </P9Window>
+          <div className="flex items-start justify-between">
+            <P9Window>
+              <Navbar />
+            </P9Window>
+            <P9Frame className="grid place-content-center aspect-square w-[30px] h-[30px]">
+              <Link href="/about" className="font-display w-fit">?</Link>
+            </P9Frame>
+          </div>
         </header>
         <main className="contents">
           {children}

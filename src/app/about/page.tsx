@@ -6,19 +6,47 @@
 // and related and neighboring rights to this software to the public domain
 // worldwide. This software is distributed without any warranty.
 
-import P9Window from '../../components/P9Window'
-import LabelledValue from '../../components/LabelledValue'
+import P9Window from '@/components/P9Window'
+
+import React from 'react';
+
+type HoverLinkProps = {
+  href: string;
+  children: React.ReactNode;
+}
+
+function HoverLink({href, children}: HoverLinkProps) {
+  return (
+    <a 
+      className="braces hover:bg-black hover:text-white"
+      rel="noreferrer noopener"
+      target="_blank"
+      href={href}
+    >
+      {children}
+    </a>
+  );
+}
 
 export default function About() {
   return (
     <P9Window className="row-start-2 justify-self-center self-center max-h-full z-10">
-      <div className="flex flex-col gap-[1.5em] font-display text-[16px] p-[10px] max-w-[40em] min-h-[26.667em]">
+      <div className="flex flex-col gap-[1.5em] font-display text-[14px] md:text-[16px] p-[10px] max-w-[40em] min-h-[26.667em]">
         <p>We are CC0lab – a group of musicians, devs, artists, and rabble-rousers focused on bringing open-source music to the Web3 multiverse. Born from the Headless Chaos project, we’re now aiming our Chaotic creative energy towards creating fully public domain musical works to be used by any and everyone in their web3 journeys.</p>
         <p>By minting one of our NFTs, you can become part of the CC0lab journey. Your support will allow us to continue creating new works, pushing forward the radical CC0 open-source ethos. But that’s just the beginning. We’re planning plenty of utility for the CC0lab NFTs, including eligibility to participate in future remix competitions and virtual CC0lab minicamps.</p>
-        <ul className="inline-flex flex-wrap leading-[2] mt-auto">
-          <span>Find us on:&nbsp;</span>
-          <li><a className="braces" rel="noreferrer noopener" href="https://discord.gg/aWx4nmBPwN">Discord</a></li>
-        </ul>
+        <div>
+          <ul className="flex flex-wrap leading-[2] space-x-1 mt-auto">
+            <div><span className="font-displayUnderscored">Find us on</span>:</div>
+            <li><HoverLink href="https://discord.gg/aWx4nmBPwN">Discord</HoverLink></li>
+            <li><HoverLink href="https://twitter.com/CC0lab_">Twitter</HoverLink></li>
+          </ul>
+          <ul className="flex flex-col sm:flex-row flex-wrap leading-[2] space-x-1 mt-auto">
+            <div><span className="font-displayUnderscored">Collect our</span>:</div>
+            <li><HoverLink href="https://rarible.com/cc0mixtape-common/items">Cloaks</HoverLink></li>
+            <li><HoverLink href="https://zora.co/collect/eth:0x72529ca1ca1be6657cfc9f9f12c614e2fbd8d761">Mixtape Vol. 1</HoverLink></li>
+            <li><HoverLink href="https://zora.co/collect/zora:0x392c21e1e46c24ec74dad3bb6bcc36198189ddc9/1">Mixtape Vol. 1 Remix</HoverLink></li>
+          </ul>
+        </div>
       </div>
     </P9Window>
 

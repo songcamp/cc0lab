@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "cc0lab",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
+    "@reservoir0x/reservoir-sdk": "^1.7.0",
     "clsx": "^2.0.0",
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "server-only": "^0.0.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
