@@ -42,7 +42,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={clsx(
-      'h-screen bg-art-11 bg-cover bg-fixed bg-center bg-no-repeat overflow-auto md:overflow-hidden',
+      'h-screen bg-art-01 bg-cover bg-fixed bg-center bg-no-repeat overflow-auto md:overflow-hidden',
+      'bg-[rgb(247,6,132,0.55)] bg-blend-saturation',
       fontBPtypewriteUnderscored.variable,
       fontBPtypewrite.variable,
       fontFT88.variable
