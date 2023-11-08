@@ -12,7 +12,6 @@ const title = 'CC0lab'
 
 const description = 'We are CC0lab—a group of musicians, devs, artists, and rabble-rousers bringing open-source music to the Web3 multiverse. Born from the Headless Chaos project, we’re now aiming our Chaotic creative energy towards creating fully public domain musical works to be used by any and everyone in their web3 journeys.'
 
-
 export const metadata: Metadata = {
   title: title,
   description,
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     title,
     description,
     images: [{
-      url: 'og.png',
+      url: 'og-v2.png',
       width: 1200,
       height: 630
     }],
