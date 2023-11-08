@@ -50,7 +50,7 @@ export function Mixtapes({tokens}: {tokens: Token[]}) {
   }, [tokens, playing]);
 
   return (
-    <div className="grid gap-[10px] sm:grid-flow-col place-content-center h-full">
+    <div className="grid gap-[10px] landscape:grid-flow-col place-content-center h-full">
       {tokens.map((token, index) => token && (
         <P9Frame key={index} className="z-10 p-[10px] aspect-square h-full min-h-0 max-h-full w-full max-w-[320px] sm:max-w-[500px]">
           <div key={index} className="relative w-fit group">
